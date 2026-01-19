@@ -12,8 +12,13 @@ import json
 import logging
 import os
 import threading
+from pathlib import Path
+from dotenv import load_dotenv
 from flask import Flask, jsonify
 import paho.mqtt.client as mqtt
+
+# Load environment variables from .env file
+load_dotenv(Path(__file__).parent / ".env")
 
 # Configure logging
 logging.basicConfig(
