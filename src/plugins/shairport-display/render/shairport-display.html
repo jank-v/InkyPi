@@ -1,0 +1,31 @@
+{% extends "plugin.html" %}
+
+{% block content %}
+
+<div class="now-playing-container">
+    {% if artwork_data %}
+    <div class="artwork-wrapper">
+        <img class="album-artwork" src="{{ artwork_data }}" alt="Album Artwork">
+    </div>
+    {% else %}
+    <div class="artwork-wrapper">
+        <div class="no-artwork">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z" />
+            </svg>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="track-info">
+        <div class="track-title">{{ title }}</div>
+        {% if artist %}
+        <div class="track-artist">{{ artist }}</div>
+        {% endif %}
+        {% if album %}
+        <div class="track-album">{{ album }}</div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

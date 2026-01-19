@@ -1,0 +1,115 @@
+.now-playing-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    gap: 5vw;
+    font-family: "Jost";
+    padding: 2vw;
+    box-sizing: border-box;
+}
+
+.artwork-wrapper {
+    flex-shrink: 0;
+    width: 40%;
+    max-width: 45dvh;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.album-artwork {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.no-artwork {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(128, 128, 128, 0.2);
+    border-radius: 8px;
+}
+
+.no-artwork svg {
+    width: 40%;
+    height: 40%;
+    opacity: 0.5;
+}
+
+.track-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    text-align: left;
+}
+
+.track-title {
+    font-size: min(8dvh, 6vw);
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 1dvh;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.track-artist {
+    font-size: min(5dvh, 4vw);
+    line-height: 1.3;
+    opacity: 0.8;
+    margin-bottom: 0.5dvh;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.track-album {
+    font-size: min(4dvh, 3vw);
+    line-height: 1.3;
+    opacity: 0.6;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Vertical orientation adjustments */
+@media (orientation: portrait) {
+    .now-playing-container {
+        flex-direction: column;
+        gap: 3dvh;
+    }
+
+    .artwork-wrapper {
+        width: 60%;
+        max-width: 50vw;
+    }
+
+    .track-info {
+        text-align: center;
+        width: 100%;
+    }
+
+    .track-title {
+        font-size: min(6vw, 8dvh);
+    }
+
+    .track-artist {
+        font-size: min(4vw, 5dvh);
+    }
+
+    .track-album {
+        font-size: min(3vw, 4dvh);
+    }
+}
