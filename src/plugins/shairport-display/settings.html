@@ -1,30 +1,37 @@
-<div class="settings-section">
-    <h3>Metadata Source</h3>
-    <div class="form-group">
-        <label for="metadata_url">Metadata URL</label>
-        <input type="text" id="metadata_url" name="metadata_url"
-            value="{{ settings.metadata_url or 'http://localhost:5000/metadata' }}"
-            placeholder="http://localhost:5000/metadata">
-        <small class="form-text">URL of the metadata service endpoint</small>
-    </div>
+<div class="form-group">
+    <label for="metadata_url" class="form-label">Metadata URL:</label>
+    <input type="text" id="metadata_url" name="metadata_url" class="form-input"
+        placeholder="http://localhost:5000/metadata">
+    <small class="form-text">URL of the metadata service endpoint</small>
 </div>
 
-<div class="settings-section">
-    <h3>Default Display</h3>
-    <div class="form-group">
-        <label for="default_title">Default Title</label>
-        <input type="text" id="default_title" name="default_title" value="{{ settings.default_title or 'Not Playing' }}"
-            placeholder="Not Playing">
-        <small class="form-text">Shown when nothing is playing</small>
-    </div>
-    <div class="form-group">
-        <label for="default_artist">Default Artist</label>
-        <input type="text" id="default_artist" name="default_artist" value="{{ settings.default_artist or '' }}"
-            placeholder="">
-    </div>
-    <div class="form-group">
-        <label for="default_album">Default Album</label>
-        <input type="text" id="default_album" name="default_album" value="{{ settings.default_album or '' }}"
-            placeholder="">
-    </div>
+<div class="form-group">
+    <label for="default_title" class="form-label">Default Title:</label>
+    <input type="text" id="default_title" name="default_title" class="form-input" placeholder="Not Playing">
+    <small class="form-text">Shown when nothing is playing</small>
 </div>
+
+<div class="form-group">
+    <label for="default_artist" class="form-label">Default Artist:</label>
+    <input type="text" id="default_artist" name="default_artist" class="form-input" placeholder="">
+</div>
+
+<div class="form-group">
+    <label for="default_album" class="form-label">Default Album:</label>
+    <input type="text" id="default_album" name="default_album" class="form-input" placeholder="">
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (loadPluginSettings) {
+            document.getElementById('metadata_url').value = pluginSettings.metadata_url || 'http://localhost:5000/metadata';
+            document.getElementById('default_title').value = pluginSettings.default_title || 'Not Playing';
+            document.getElementById('default_artist').value = pluginSettings.default_artist || '';
+            document.getElementById('default_album').value = pluginSettings.default_album || '';
+        } else {
+            // Set default values
+            document.getElementById('metadata_url').value = 'http://localhost:5000/metadata';
+            document.getElementById('default_title').value = 'Not Playing';
+        }
+    });
+</script>
